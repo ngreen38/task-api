@@ -45,3 +45,34 @@ post:
             $ref: ../components/schemas/Task.yaml
     '400':
       $ref: ../components/schemas/responses/BadRequest.yaml
+tasksById:
+  get:
+    summary: Get a task by ID
+    description: Retrieves a single task using its unique identifier
+    tags:
+      - Tasks
+    operationId: getTaskById
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Unique identifier of the task to retrieve
+        schema:
+          type: integer
+          minimum: 1
+        example: 1
+    responses:
+      '200':
+        description: Task found and returned successfully
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Task.yaml
+            example:
+              id: 1
+              title: "Buy groceries"
+              completed: false
+      '400':
+        $ref: ../components/responses/BadRequest.yaml
+      '404':
+        $ref: ../components/responses/NotFoundError.yaml

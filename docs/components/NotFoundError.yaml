@@ -1,0 +1,10 @@
+description: Resource not found - The requested task does not exist
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message indicating the resource was not found
+          example: "Task not found"
