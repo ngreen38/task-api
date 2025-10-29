@@ -12,6 +12,7 @@ export async function createTask(req, res, next) {
 }
 
 export async function getTaskIdController(req, res) {
-    const task = await taskService.getTaskById(req.params.id);
+    let id = parseInt(req.params.id);
+    const task = await taskService.getTaskById(id);
     res.status(200).json(task);
 }
